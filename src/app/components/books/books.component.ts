@@ -27,5 +27,18 @@ export class BooksComponent implements OnInit {
 
     OnSubmit(form:NgForm){
       console.log("Clicked");
+      this.InsertBooks();
+    }
+
+    InsertBooks(){
+      this.books_service.insertBooks().subscribe(
+        (res:any)=>{
+          console.log("sucess");
+        },
+        err=>{
+          console.log("failed");
+          console.log(err);
+        }
+      )
     }
 }
